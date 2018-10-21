@@ -1,6 +1,6 @@
 const db = require('../config/db.config.js');
 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt-nodejs');
 const jwt = require('jsonwebtoken');
 const config = require('../config');
 
