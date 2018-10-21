@@ -8,7 +8,7 @@ module.exports = (sequelize, Sequelize) => {
         },      
         municipality_id : {
             type: Sequelize.UUID,
-            allowNull: false
+            allowNull: true
         },
         city:{
             type: Sequelize.STRING

@@ -1,7 +1,7 @@
 const env = {
-  database: 'node_test',
+  database: 'LoginDB',
   username: 'root',
-  password: '1234',
+  password: '',
   host: 'localhost',
   dialect: 'mysql',
   pool: {

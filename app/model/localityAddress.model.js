@@ -8,7 +8,7 @@ module.exports = (sequelize, Sequelize) => {
         },
         locality_id : {
             type: Sequelize.UUID,
-            allowNull: false
+            allowNull: true
         },
         house_number:{
             type: Sequelize.STRING

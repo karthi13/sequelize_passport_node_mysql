@@ -1,3 +1,8 @@
+var Sequelize = require('sequelize'),
+    bcrypt = require('bcrypt');
+
+var config = require('../config');
+
 module.exports = (sequelize, Sequelize) => {
 
 	const User = sequelize.define('user', {
@@ -39,13 +44,17 @@ module.exports = (sequelize, Sequelize) => {
 		postcode: {
 			type: Sequelize.STRING
         }, 
+        // role: {
+        //     type: Sequelize.ENUM,
+        //     values: ['user', 'admin']
+        // },
         role: {
-            type: Sequelize.ENUM,
-            values: ['user', 'admin']
+            type: Sequelize.INTEGER,
+            defaultValue: config.userRoles.user
         },
         locality_id : {
             type: Sequelize.UUID,
-            allowNull: false
+            allowNull: true
         },
 	}, {
         underscored: true

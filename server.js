@@ -14,6 +14,12 @@ app.use(
 ); // session secret
 app.use(passport.initialize());
 app.use(passport.session());
+/////////////////////
+// Hook the passport JWT strategy.
+var hookJWTStrategy = require('./app/Services/passportStrategy');
+hookJWTStrategy(passport);
+/////////////////////
+
   
 // force: true will drop the table if it already exists
 db.sequelize.sync({force: false, alert: true}).then(() => {
@@ -24,6 +30,11 @@ db.sequelize.sync({force: false, alert: true}).then(() => {
 require('./app/config/passport.js')(passport, db.user);
 require('./app/route/customer.route.js')(app,passport);
  
+//////////////////////////////////////////////////////
+app.get('/', function(req, res) {
+  res.send('Nice meeting you wizard, I\'m deema!');
+});
+
 // Create a Server
 var server = app.listen(9000, function () {
  
